@@ -112,10 +112,44 @@ WHERE full_name LIKE 'Tanvir%'
 
 -- QUERY 3
 -- Retrieve bookings where payment_status is NULL, replacing the NULL
--- with the label 'Action Required'.
+
 SELECT booking_id,
        user_id,
        match_id,
        COALESCE(payment_status, 'Action Required') AS systematic_status
 FROM Bookings
 WHERE payment_status IS NULL;
+
+
+
+-- QUERY 4
+-- Combine booking details with the user's full name and the match fixture.
+SELECT b.booking_id,
+       u.full_name,
+       m.fixture,
+       b.total_cost
+FROM Bookings b
+INNER JOIN Users u   ON b.user_id  = u.user_id
+INNER JOIN Matches m ON b.match_id = m.match_id;
+
+
+
+-- QUERY 5
+-- List every user with their booking IDs, including fans who have never
+
+SELECT u.user_id,
+       u.full_name,
+       b.booking_id
+FROM Users u
+LEFT JOIN Bookings b ON u.user_id = b.user_id
+ORDER BY u.user_id;
+
+
+
+-- QUERY 6
+-- Find bookings whose total_cost is strictly greater than the average
+
+SELECT booking_id, match_id, total_cost
+FROM Bookings
+WHERE total_cost > (SELECT AVG(total_cost) FROM Bookings);
+

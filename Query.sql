@@ -87,3 +87,35 @@ INSERT INTO Bookings (booking_id, user_id, match_id, seat_number, payment_status
 (505, 3, 102, 'C-20', 'Pending', 120.00);
 
 
+
+
+
+
+-- QUERY 1
+-- Retrieve all upcoming Champions League matches that are 'Available'.
+
+SELECT match_id, fixture, base_ticket_price
+FROM Matches
+WHERE tournament_category = 'Champions League'
+  AND match_status = 'Available';
+
+
+
+-- QUERY 2
+-- Find users whose full name starts with 'Tanvir' OR contains 'Haque'
+SELECT user_id, full_name, email
+FROM Users
+WHERE full_name LIKE 'Tanvir%'
+   OR full_name ILIKE '%Haque%';
+
+
+
+-- QUERY 3
+-- Retrieve bookings where payment_status is NULL, replacing the NULL
+-- with the label 'Action Required'.
+SELECT booking_id,
+       user_id,
+       match_id,
+       COALESCE(payment_status, 'Action Required') AS systematic_status
+FROM Bookings
+WHERE payment_status IS NULL;

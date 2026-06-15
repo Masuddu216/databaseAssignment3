@@ -115,7 +115,7 @@ B7A3/
 
 - **ERD (public view link):** https://lucid.app/lucidchart/7c110e32-1d14-443e-987e-3cabfcfdf149/edit?viewport_loc=-4363%2C-604%2C4539%2C2057%2C0_0&invitationId=inv_b1de2fa0-f90f-454d-8ae6-13aa28aa0e6f
 - **GitHub Repository (public):** https://github.com/Masuddu216/databaseAssignment3.git
-- **Video Walkthrough (public):** _[Add here]_
+- **Video Walkthrough (public):** https://drive.google.com/file/d/1lsD5f4QYCY-DDSsCyI18d2_RSSEFWXjd/view?usp=sharing
 
 ---
 
